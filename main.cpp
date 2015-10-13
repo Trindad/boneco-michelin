@@ -35,7 +35,7 @@ void draw()
 	glLoadIdentity();
 
 	// gluLookAt(0,-2,-0.1,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(0,3,-0.01,0,0,0,0,1,0);//muda direção de visão
+	//gluLookAt(0,1.6,-0.5,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-2.5,1,-1.5,0,0,0,0,1,0);//muda direção de visão
 	gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-0.5,-0.8,-1.8,0,0,0,0,1,0);//muda direção de visão
@@ -206,11 +206,81 @@ void draw()
 	 */
 	GLUquadric *pulsoD = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(0.61,1.0,0.02);
+	glTranslatef(0.65,0.65,-0.44);
 	glRotatef(0,0,1.0,0);
-	glRotatef(20,0,0,1.0);
-	glRotatef(90,1.0,0,0);
-	gluCylinder(pulsoD,0.1f,0.1,0.1,30,30);
+	glRotatef(-10,0,0,1.0);
+	glRotatef(75,1.0,0,0);
+	gluCylinder(pulsoD,0.05f,0.05,0.05,30,30);
+	glPopMatrix();
+
+	/**
+	 * palma
+	 */
+	
+	glPushMatrix();
+	glTranslatef(0.66,0.68,-0.47);
+	glRotatef(110,0,1.0,0);
+	glRotatef(20,1.0,0,0);
+	glRotatef(80,0,0,1.0);
+	glScalef(0.35,0.2,0.45);
+	glutSolidCube(0.3);
+	glPopMatrix();
+
+	/**
+	 * dedão
+	 */
+	GLUquadric *dedao = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(0.57,0.75,-0.44);
+	glRotatef(30,0,1.0,0);
+	glRotatef(18,0,0,1.0);
+	glRotatef(75,1.0,0,0);
+	gluCylinder(dedao,0.02f,0.02,0.1,30,30);
+	glPopMatrix();
+
+
+
+
+
+	/**
+	 * Mão esquerda
+	 */
+	
+	/**
+	 * pulso
+	 */
+	GLUquadric *pulsoE = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(-0.40,0.1,-0.58);
+	glRotatef(0,0,1.0,0);
+	glRotatef(-25,0,0,1.0);
+	glRotatef(75,1.0,0,0);
+	gluCylinder(pulsoE,0.05f,0.05,0.05,30,30);
+	glPopMatrix();
+
+	/**
+	 * palma
+	 */
+	
+	glPushMatrix();
+	glTranslatef(0.66,0.68,-0.47);
+	glRotatef(110,0,1.0,0);
+	glRotatef(20,1.0,0,0);
+	glRotatef(80,0,0,1.0);
+	glScalef(0.35,0.2,0.45);
+	glutSolidCube(0.3);
+	glPopMatrix();
+
+	/**
+	 * dedão
+	 */
+	GLUquadric *dedaoE = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(0.57,0.75,-0.44);
+	glRotatef(30,0,1.0,0);
+	glRotatef(18,0,0,1.0);
+	glRotatef(75,1.0,0,0);
+	gluCylinder(dedaoE,0.02f,0.02,0.1,30,30);
 	glPopMatrix();
 
 	GLdouble innerRadius[] = {
