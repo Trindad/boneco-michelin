@@ -197,6 +197,22 @@ void draw()
 
 	glColor3f(1.0, 1.0, 1.0);
 
+	/**
+	 * Mão direita
+	 */
+	
+	/**
+	 * pulso
+	 */
+	GLUquadric *pulsoD = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(0.61,1.0,0.02);
+	glRotatef(0,0,1.0,0);
+	glRotatef(20,0,0,1.0);
+	glRotatef(90,1.0,0,0);
+	gluCylinder(pulsoD,0.1f,0.1,0.1,30,30);
+	glPopMatrix();
+
 	GLdouble innerRadius[] = {
 		//torax
 		0.1,
