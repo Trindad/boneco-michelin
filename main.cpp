@@ -38,9 +38,9 @@ void draw()
 	// gluLookAt(0.5,1.6,-1,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-0.15,1,-1,0,0,0,0,1,0);
 	// gluLookAt(-2.5,1,-1.5,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(-0.5,-0.8,-1.8,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(-0.9,0.2,-1,0,0,0,0,1,0);//muda direção de visão
+	gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
+	// gluLookAt(-1.3,-0.2,-0,0,0,0,0,1,0);//muda direção de visão
+	// gluLookAt(-1.5,0.6,-0.2,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-1.5,0.4,-0.5,0,0,0,0,1,0);
 	// gluLookAt(-0.8,0.7,-0.5,0,0,0,0,1,0);
 	// gluLookAt(0.01,0.0,-2,0,0,0,0,1,0);//muda direção de visão
@@ -241,38 +241,38 @@ void draw()
 	 */
 	GLUquadric *dedo5 = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(-0.83,-0.14,-0.14);
+	glTranslatef(-0.84,-0.146,-0.173);
 	glRotatef(70,0,1.0,0);
-	glRotatef(0,1.0,0,0);
+	glRotatef(120,1.0,0,0);
 	glRotatef(0,0,0,1.0);
-	gluCylinder(dedo5,0.02f,0.02,0.08,30,30);
+	gluCylinder(dedo5,0.025f,0.025,0.08,30,30);
 	glPopMatrix();
 
 	GLUquadric *dedo6 = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(-0.83,-0.14,-0.12);
+	glTranslatef(-0.865,-0.146,-0.128);
 	glRotatef(70,0,1.0,0);
-	glRotatef(0,1.0,0,0);
+	glRotatef(120,1.0,0,0);
 	glRotatef(0,0,0,1.0);
-	gluCylinder(dedo6,0.02f,0.02,0.08,30,30);
+	gluCylinder(dedo6,0.025f,0.025,0.09,30,30);
 	glPopMatrix();
 
 	GLUquadric *dedo7 = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(-0.84,-0.135,-0.09);
+	glTranslatef(-0.872,-0.11,-0.085);
 	glRotatef(70,0,1.0,0);
-	glRotatef(0,1.0,0,0);
+	glRotatef(120,1.0,0,0);
 	glRotatef(0,0,0,1.0);
-	gluCylinder(dedo7,0.02f,0.02,0.08,30,30);
+	gluCylinder(dedo7,0.025f,0.025,0.1,30,30);
 	glPopMatrix();
 
 	GLUquadric *dedo8 = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(-0.87,-0.14,-0.06);
+	glTranslatef(-0.87,-0.11,-0.04);
 	glRotatef(70,0,1.0,0);
-	glRotatef(0,1.0,0,0);
+	glRotatef(120,1.0,0,0);
 	glRotatef(0,0,0,1.0);
-	gluCylinder(dedo8,0.02f,0.02,0.12,30,30);
+	gluCylinder(dedo8,0.025f,0.025,0.09,30,30);
 	glPopMatrix();
 
 
@@ -344,7 +344,7 @@ void draw()
 	glRotatef(60,0,1.0,0);
 	glRotatef(-45,1.0,0,0);
 	glRotatef(0,0,0,1.0);
-	glScalef(0.35,0.2,0.45);
+	glScalef(0.60,0.3,0.55);
 	glutSolidCube(0.3);
 	glPopMatrix();
 
@@ -353,11 +353,11 @@ void draw()
 	 */
 	GLUquadric *dedaoE = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(-0.79,-0.09,-0.12);
+	glTranslatef(-0.77,-0.09,-0.15);
 	glRotatef(130,0,1.0,0);
-	glRotatef(70,0,0,1.0);
+	glRotatef(40,0,0,1.0);
 	glRotatef(75,1.0,0,0);
-	gluCylinder(dedaoE,0.02f,0.02,0.1,30,30);
+	gluCylinder(dedaoE,0.03f,0.03,0.13,30,30);
 	glPopMatrix();
 
 
