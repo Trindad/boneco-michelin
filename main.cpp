@@ -38,7 +38,7 @@ void draw()
 	// gluLookAt(0.5,1.6,-1,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-0.15,1,-1,0,0,0,0,1,0);
 	// gluLookAt(-2.5,1,-1.5,0,0,0,0,1,0);//muda direção de visão
-	gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
+	// gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-0.5,-0.8,-1.8,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-0.9,0.2,-1,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-1.5,0.4,-0.5,0,0,0,0,1,0);
@@ -235,6 +235,47 @@ void draw()
 	glRotatef(75,1.0,0,0);
 	gluCylinder(dedo4,0.02f,0.02,0.1,30,30);
 	glPopMatrix();
+
+	/**
+	 * Mão esquerda
+	 */
+	GLUquadric *dedo5 = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(-0.83,-0.14,-0.14);
+	glRotatef(70,0,1.0,0);
+	glRotatef(0,1.0,0,0);
+	glRotatef(0,0,0,1.0);
+	gluCylinder(dedo5,0.02f,0.02,0.08,30,30);
+	glPopMatrix();
+
+	GLUquadric *dedo6 = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(-0.83,-0.14,-0.12);
+	glRotatef(70,0,1.0,0);
+	glRotatef(0,1.0,0,0);
+	glRotatef(0,0,0,1.0);
+	gluCylinder(dedo6,0.02f,0.02,0.08,30,30);
+	glPopMatrix();
+
+	GLUquadric *dedo7 = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(-0.84,-0.135,-0.09);
+	glRotatef(70,0,1.0,0);
+	glRotatef(0,1.0,0,0);
+	glRotatef(0,0,0,1.0);
+	gluCylinder(dedo7,0.02f,0.02,0.08,30,30);
+	glPopMatrix();
+
+	GLUquadric *dedo8 = gluNewQuadric();
+	glPushMatrix();
+	glTranslatef(-0.87,-0.14,-0.06);
+	glRotatef(70,0,1.0,0);
+	glRotatef(0,1.0,0,0);
+	glRotatef(0,0,0,1.0);
+	gluCylinder(dedo8,0.02f,0.02,0.12,30,30);
+	glPopMatrix();
+
+
 
 	/**
 	 * Mão direita
