@@ -28,10 +28,13 @@ void draw()
 
 	glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT);
 
+	// mudança de perspectiva são feitas em modo de projeção
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	// Define angulo de visão e o quão longo a câmera vê
 	gluPerspective(90, 1, 0.1, 7);
+
+	// para desenhar, devemos voltar ao modo do modelo
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
@@ -595,6 +598,7 @@ void draw()
 
 	drawAllTorus(25, innerRadius, outerRadius, positions, rotations, scales);
 
+	// estamos usando buffer duplo
 	glutSwapBuffers();
 }
 
@@ -637,20 +641,39 @@ int main(int argc, char **argv)
 	glutInitWindowPosition(0,0);
 	glutCreateWindow("Michelin");
 	glutDisplayFunc(draw);
+	// Coloca cor azul, similar ao desenho
 	glClearColor(28/255.0f, 91/255.0f, 162/255.0f, 0);//adicionando cor ao plano de fundo
 
+	// Habilita teste de profundidade dos objetos
+	// para decidir qual deve aparecer na frente
 	glEnable(GL_DEPTH_TEST);
 	glDepthFunc(GL_LESS);
 
+	// Habilita sistema de luz no material do boneco
 	glEnable(GL_COLOR_MATERIAL);
 
+	// Configura luz ambiente (luz que ilumina objeto como um todo, sem lado menos iluminado)
 	glLightfv(GL_LIGHT0, GL_AMBIENT,  light_ambient);
+
+	/**
+	 * Configura luz fosca, sombra vai depender da posição da câmera
+	 * Não configuramos luz 'especular', que dá impressão de brilho no objeto
+	 */
 	glLightfv(GL_LIGHT0, GL_DIFFUSE,  light_diffuse);
+
+	// Posiciona luz
 	glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+	// Ativa a luz 0 (é possivel colocar mais)
 	glEnable(GL_LIGHT0);
+
+	// Deixa as normais dos objetos certo
 	glEnable(GL_NORMALIZE);
+
+	// Configura luz para iluminar ambos os lados dos poligonos
 	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_TRUE);
 
+	// por fim, habilita a luz
 	glEnable(GL_LIGHTING);
 
 	glutMainLoop();
