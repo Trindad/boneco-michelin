@@ -36,10 +36,13 @@ void draw()
 
 	// gluLookAt(0,-2,-0.1,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(0.5,1.6,-1,0,0,0,0,1,0);//muda direção de visão
+	// gluLookAt(-0.15,1,-1,0,0,0,0,1,0);
 	// gluLookAt(-2.5,1,-1.5,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
+	gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(-0.5,-0.8,-1.8,0,0,0,0,1,0);//muda direção de visão
-	gluLookAt(-1.5,0.4,-0.5,0,0,0,0,1,0);//muda direção de visão
+	// gluLookAt(-0.9,0.2,-1,0,0,0,0,1,0);//muda direção de visão
+	// gluLookAt(-1.5,0.4,-0.5,0,0,0,0,1,0);
+	// gluLookAt(-0.8,0.7,-0.5,0,0,0,0,1,0);
 	// gluLookAt(0.01,0.0,-2,0,0,0,0,1,0);//muda direção de visão
 	// gluLookAt(2,-0.8,0,0,0,0,0,1,0);//muda direção de visão
 
@@ -309,11 +312,37 @@ void draw()
 	 */
 	GLUquadric *dedaoE = gluNewQuadric();
 	glPushMatrix();
-	glTranslatef(0.50,0.75,-0.44);
-	glRotatef(30,0,1.0,0);
-	glRotatef(18,0,0,1.0);
+	glTranslatef(-0.79,-0.09,-0.12);
+	glRotatef(130,0,1.0,0);
+	glRotatef(70,0,0,1.0);
 	glRotatef(75,1.0,0,0);
 	gluCylinder(dedaoE,0.02f,0.02,0.1,30,30);
+	glPopMatrix();
+
+
+	/**
+	 * Boca
+	 */
+	glColor3f(0.0, 0.0, 0.0);
+
+	glPushMatrix();
+	glTranslatef(0.06,0.71,-0.262);
+	glRotatef(90,0,1.0,0);
+	glRotatef(-90,0,0,1.0);
+	glRotatef(-180,1.0,0,0);
+	glScalef(0.04,0.05,0.1);
+	glutSolidTetrahedron();
+	glPopMatrix();
+
+	glColor3f(1.0, 1.0, 1.0);
+
+	glPushMatrix();
+	glTranslatef(0.06,0.71,-0.273);
+	glRotatef(90,0,1.0,0);
+	glRotatef(-90,0,0,1.0);
+	glRotatef(-180,1.0,0,0);
+	glScalef(0.025,0.025,0.07);
+	glutSolidTetrahedron();
 	glPopMatrix();
 
 	GLdouble innerRadius[] = {
