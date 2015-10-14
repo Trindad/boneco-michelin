@@ -30,27 +30,28 @@ void draw()
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
+	// Define angulo de visão e o quão longo a câmera vê
 	gluPerspective(90, 1, 0.1, 7);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	// gluLookAt(0,-2,-0.1,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(0.5,1.6,-1,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(-0.15,1,-1,0,0,0,0,1,0);
-	// gluLookAt(-2.5,1,-1.5,0,0,0,0,1,0);//muda direção de visão
-	gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(-1.3,-0.2,-0,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(-1.5,0.6,-0.2,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(-1.5,0.4,-0.5,0,0,0,0,1,0);
-	// gluLookAt(-0.8,0.7,-0.5,0,0,0,0,1,0);
-	// gluLookAt(0.01,0.0,-2,0,0,0,0,1,0);//muda direção de visão
-	// gluLookAt(2,-0.8,0,0,0,0,0,1,0);//muda direção de visão
+
+	// posiciona câmera no ponto (0.6,0.6,-1.8) olhando para a origem
+	gluLookAt(0.6,0.6,-1.8,0,0,0,0,1,0);
 
 	glColor3f(1.0, 1.0, 1.0);
 
 	/**
+	 * A combinação de glPushMatrix e glPopMatrix
+	 * faz com que a matriz atual (da visão da câmera) seja duplicada, para que
+	 * possamos aplicar as transformações no objeto sendo
+	 * criado, e depois restauramos a matriz que estava em uso.
+	 */
+
+	/**
 	 * Cabeça base
 	 */
+	// GLUquadric é como o GLU aloca suas primitivas
 	GLUquadric *t = gluNewQuadric();
 
 	glPushMatrix();
@@ -386,6 +387,22 @@ void draw()
 	glutSolidTetrahedron();
 	glPopMatrix();
 
+	/**
+	 * Aqui começa o desenho do corpo.
+	 * Utilizamos torus para desenhar.
+	 *
+	 * Torus precisa de 4 informações (2 deixamos fixas), e para
+	 * facilitar, criamos vetores de todos os torus
+	 * para cada informação, além da posição, rotação e tamanho:
+	 *
+	 * - innerRadius: raio interno do torus
+	 * - outerRadius: raio externo do torus
+	 *
+	 * - positions: posições dos torus
+	 * - rotations: rotações dos torus
+	 * - scales: tamanhos dos torus
+	 */
+
 	GLdouble innerRadius[] = {
 		//torax
 		0.1,
@@ -581,6 +598,9 @@ void draw()
 	glutSwapBuffers();
 }
 
+/**
+ * Percorre vetores e chama função que desenha os torus individualmente
+ */
 void drawAllTorus(int n, GLdouble *innerRadius, GLdouble *outerRadius, GLfloat positions[][3], GLfloat rotations[][3], GLfloat scales[][3])
 {
 	for (int i = 0; i < n; i++)
@@ -589,11 +609,13 @@ void drawAllTorus(int n, GLdouble *innerRadius, GLdouble *outerRadius, GLfloat p
 	}
 }
 
+/**
+ * Dada um diametro interno, externo, a posição
+ * a rotação e a escala, desenha um torus na tela
+ */
 void drawTorus(GLdouble innerRadius, GLdouble outerRadius,GLfloat *position, GLfloat *rotation, GLfloat *scale)
 {
 	glPushMatrix();
-
-	// glEnable(GL_NORMALIZE);
 
 	glTranslatef(position[0],position[1],position[2]);
 
@@ -603,7 +625,6 @@ void drawTorus(GLdouble innerRadius, GLdouble outerRadius,GLfloat *position, GLf
 
 	glScalef(scale[0], scale[1], scale[2]);
 
-	// glutWireTorus(innerRadius,outerRadius,40,50);
 	glutSolidTorus(innerRadius,outerRadius,100,100);
 	glPopMatrix();
 }
